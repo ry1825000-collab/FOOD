@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --rcb-primary: #EC1C24; /* red */
+  --rcb-bg: #0b0b0b; /* slightly lighter stadium black */
+  --rcb-accent: #D4AF37; /* gold */
+  --rcb-card: #252525; /* dark card */
+  --rcb-text: #FFFFFF;
+  --rcb-muted: rgba(255,255,255,0.7);
+}
+
+html,body,#root { height: 100%; }
+body {
+  background: radial-gradient(circle at 10% 10%, rgba(236,28,36,0.06), transparent 25%),
+              radial-gradient(circle at 90% 90%, rgba(212,175,55,0.02), transparent 25%),
+              linear-gradient(180deg,#060606 0%, var(--rcb-bg) 60%);
+  color: var(--rcb-text);
+  font-family: 'Poppins', Inter, Montserrat, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Glass card used throughout the UI */
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,175,55,0.06);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.glass:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(0,0,0,0.7); }
+
+/* Card element */
+.card {
+  background: var(--rcb-card);
+  border-radius: 14px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Primary red button with gold accent */
+.rcb-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  background: linear-gradient(90deg, var(--rcb-primary) 0%, #c01212 100%);
+  color: var(--rcb-text);
+  border-radius: 12px;
+  padding: 8px 14px;
+  box-shadow: 0 8px 24px rgba(236,28,36,0.18);
+  border: 1px solid rgba(0,0,0,0.25);
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+}
+.rcb-btn:hover { transform: translateY(-3px); filter: brightness(1.03); }
+
+/* Gold accent button/outline */
+.gold-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  background: linear-gradient(180deg, rgba(212,175,55,0.08), rgba(212,175,55,0.03));
+  color: var(--rcb-accent);
+  border-radius: 12px;
+  padding: 8px 14px;
+  border: 1px solid rgba(212,175,55,0.3);
+  box-shadow: 0 6px 18px rgba(212,175,55,0.06);
+}
+
+/* Small utility styles */
+.rcb-text-muted { color: var(--rcb-muted); }
+.rcb-gold { color: var(--rcb-accent); }
+
+/* Stadium-inspired top banner gradient */
+.stadium-hero {
+  background: linear-gradient(180deg, rgba(236,28,36,0.12), transparent 40%),
+              linear-gradient(90deg, rgba(0,0,0,0.2), rgba(0,0,0,0.05));
+  border-radius: 16px;
+}
+
+/* Utility for image placeholders */
+.img-placeholder { background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:8px; }
+
+/* Buttons and inputs */
+input, select, textarea { background: #070707; border: 1px solid rgba(255,255,255,0.04); color: var(--rcb-text); }
