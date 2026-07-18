@@ -31,12 +31,42 @@ body {
 }
 .glass:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(0,0,0,0.7); }
 
+/* Glow and pulse animations for stadium lights and CTAs */
+@keyframes redGlow {
+  0% { box-shadow: 0 0 0px rgba(236,28,36,0.0); }
+  50% { box-shadow: 0 0 24px rgba(236,28,36,0.18); }
+  100% { box-shadow: 0 0 0px rgba(236,28,36,0.0); }
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.stadium-lights { animation: redGlow 3s ease-in-out infinite; }
+.rcb-btn.pulse { animation: pulse 1.6s ease-in-out infinite; }
+
 /* Card element */
 .card {
   background: var(--rcb-card);
   border-radius: 14px;
   padding: 12px;
   border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Player-card style border for food items */
+.player-card {
+  border-radius: 14px;
+  padding: 10px;
+  border: 2px solid transparent;
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+  background-origin: border-box;
+  position: relative;
+}
+.player-card:before {
+  content: '';
+  position: absolute; inset:0; z-index:-1; border-radius:14px;
+  padding:2px; background: linear-gradient(90deg, rgba(236,28,36,0.6), rgba(212,175,55,0.15)); -webkit-mask: linear-gradient(#000,#000) content-box, linear-gradient(#000,#000);
 }
 
 /* Primary red button with gold accent */
@@ -51,6 +81,11 @@ body {
   transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
 }
 .rcb-btn:hover { transform: translateY(-3px); filter: brightness(1.03); }
+
+.rcb-badge {
+  background: linear-gradient(90deg, rgba(236,28,36,0.95), rgba(176,12,12,0.95));
+  color: white; padding:6px 8px; border-radius:10px; font-weight:700; box-shadow:0 6px 18px rgba(236,28,36,0.18);
+}
 
 /* Gold accent button/outline */
 .gold-btn {
@@ -73,6 +108,22 @@ body {
               linear-gradient(90deg, rgba(0,0,0,0.2), rgba(0,0,0,0.05));
   border-radius: 16px;
 }
+
+/* Stadium background with subtle crowd texture and vignette */
+.stadium-hero.full {
+  background-image: radial-gradient(circle at 50% 10%, rgba(236,28,36,0.08), transparent 15%),
+                    linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.85)),
+                    linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0.06));
+  background-size: cover; padding:36px; border-radius:16px;
+}
+
+.scoreboard {
+  background: linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25));
+  border: 2px solid rgba(212,175,55,0.12);
+  padding: 12px 16px; border-radius:12px;
+}
+
+.gold-pill { background: rgba(212,175,55,0.08); color:var(--rcb-accent); padding:6px 10px; border-radius:999px; border:1px solid rgba(212,175,55,0.2); font-weight:700 }
 
 /* Utility for image placeholders */
 .img-placeholder { background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:8px; }
